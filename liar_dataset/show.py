@@ -12,6 +12,8 @@ import re
 import numpy as np
 import nltk
 #nltk.download('stopwords')
+#nltk.download('punkt')
+from rake_nltk import Rake
 from nltk.corpus import stopwords
 from nltk.stem import SnowballStemmer
 from sklearn.feature_extraction.text  import TfidfVectorizer
@@ -39,7 +41,7 @@ def read_dataframe(csv_file) -> pd.DataFrame:
     return df
 
 #create a dataframe from the training data
-data = read_dataframe('train.tsv')
+data = read_dataframe('train.csv')
 
 stemmer = SnowballStemmer('english')
 words = stopwords.words("english")
@@ -62,12 +64,28 @@ feature_names = vectorizer.get_feature_names()
 feature_names = [feature_names[i] for i in chi.get_support(indices = True)]
 feature_names = np.asarray(feature_names)
 
+# user input from PHP
 url = str(sys.argv[1])
+
+# Output will be used for web crawling
+# RAKE
+r = Rake()
+words = r.extract_keywords_from_text(url)
+
+# contains keywords
+f_words = r.get_ranked_phrases()
+
+
+# Model prediction
 prediction = model.predict([url])
-#f_predict = prediction.replace("[", "").replace(" ", "").replace("]", "")
 
 print(str(model.score(X_test,y_test)) + "\n")
-print(prediction)
+
+if prediction == "[ True]":
+    print("Label: True")
+else:
+    print("Label: False")
+
 
 
 

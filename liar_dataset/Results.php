@@ -24,7 +24,7 @@
 				<!-- Menu -->
 				<nav id="menu">
 					<ul class="links">
-		                <li class="active"> <a href="Homepage.php">Home </a> </li>
+		                <li> <a href="Homepage.php">Home </a> </li>
 
 		                <li> <a href="About.php">About Us</a> </li>
 
@@ -59,7 +59,7 @@
 								<p></p>
 								<ul class="actions">
 								
-								<li><a href="About.php" class="button next">Check another</a></li>
+								<li><a href="Homepage.php" class="button next">Check another</a></li>
 								</ul>
 								</form>
 								</p>

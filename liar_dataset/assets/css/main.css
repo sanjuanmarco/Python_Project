@@ -400,7 +400,7 @@ input::-moz-focus-inner {
 		-webkit-appearance: none;
 		-ms-appearance: none;
 		appearance: none;
-		background: rgba(255, 255, 255, 0.267);
+		background: rgb(255, 255, 255);
 		border-color: #9bf1ff;
 		border-radius: 1;
 		display: block;
@@ -446,7 +446,7 @@ input::-moz-focus-inner {
 
 		select option {
 			color: #ffffff;
-			background: #242943;
+			background: #ffffff;
 		}
 
 		select:focus::-ms-value {
@@ -472,7 +472,7 @@ input::-moz-focus-inner {
 	}
 
 	::-webkit-input-placeholder {
-		color: rgba(255, 255, 255, 0.308) !important;
+		color: rgb(255, 255, 255) !important;
 		opacity: 1.0;
 	}
 
