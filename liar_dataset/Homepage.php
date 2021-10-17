@@ -1,3 +1,7 @@
+<?php 
+	require_once "dbcreate.php";
+	
+?>
 
 <!DOCTYPE HTML>
 <html>
@@ -40,12 +44,13 @@
 							<header class="major">
 								<h1>SVM Fake News Detector</h1>
 							</header>
-							<p align="justify">SVM Fake News Detector is a web-based application that uses machine learning to classify articles and images as factual or fake. 
-									SVM Fake News Detector uses support vector machine (SVM) to effectively train and test data sets in order to categorize user inputs 
-									based on the degree of accuracy it provides. This application relies on supervised learning (human-coded dataset) and focused web 
-									crawling to allow for relative accuracy. It outputs an accuracy score along with several classifications that measure the likelihood 
-									that the input has factual or false information.
+							<p align="justify">SVM Fake News Detector is a web-based application that uses machine learning to aid users in determining whether articles and images are legitimate or fake. Just simply paste a link of an article or upload an image and this application will analyze its contents to provide users in determining if their inputs are fake or not.
 							</p>
+
+							<ul class="actions">
+								
+								<li><a href="About.php" class="button next">Read more </a></li>
+							</ul>
 								
 								
 								
@@ -102,7 +107,7 @@
 						
 						<ul class="copyright">
 							<li>Copyright © 2021 MS Team - Template by:</li>
-							<li> <a href="https://www.phpjabbers.com/">PHPJabbers.com</a></li>
+							<li> <a>PHPJabbers.com</a></li>
 						</ul>
 					</div>
 				</footer>

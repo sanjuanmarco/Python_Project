@@ -39,7 +39,7 @@
 							<section id="one">
 								<div class="inner">
 									<header class="major">
-										<h1>Our developers</h1>
+										<h1>Developers</h1>
 									</header>
 									
 									<div class="row">
@@ -50,10 +50,6 @@
 
 											<h4><em>Project Manager</em></h4>
 
-											<ul class="icons">
-												<li><a href="#" class="icon alt fa-github"><span class="label">github</span></a></li>
-												<li><a href="#" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
-											</ul>
 										</div>
 
 										<div class="col-md-3 col-sm-6 co-xs-12 text-center">
@@ -63,10 +59,6 @@
 
 											<h4><em>Database Manager</em></h4>
 
-											<ul class="icons">
-												<li><a href="#" class="icon alt fa-github"><span class="label">github</span></a></li>
-												<li><a href="#" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
-											</ul>
 										</div>
 
 										<div class="col-md-3 col-sm-6 co-xs-12 text-center">
@@ -76,10 +68,6 @@
 
 											<h4><em>Frontend Developer</em></h4>
 
-											<ul class="icons">
-												<li><a href="#" class="icon alt fa-github"><span class="label">Twitter</span></a></li>
-												<li><a href="#" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
-											</ul>
 										</div>
 
 										<div class="col-md-3 col-sm-6 co-xs-12 text-center">
@@ -89,10 +77,6 @@
 
 											<h4><em>Backend Developer</em></h4>
 
-											<ul class="icons">
-												<li><a href="#" class="icon alt fa-github"><span class="label">Twitter</span></a></li>
-												<li><a href="#" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
-											</ul>
 										</div>
 
 									</div>
@@ -106,7 +90,7 @@
 					<div class="inner">
 						<ul class="copyright">
 							<li>Copyright © 2021 MS Team - Template by:</li>
-							<li> <a href="https://www.phpjabbers.com/">PHPJabbers.com</a></li>
+							<li> <a>PHPJabbers.com</a></li>
 						</ul>
 					</div>
 				</footer>

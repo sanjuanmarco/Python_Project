@@ -379,7 +379,7 @@ input::-moz-focus-inner {
 		}
 
 	label {
-		color: #ffffff;
+		color: #000000;
 		display: block;
 		font-size: 0.8em;
 		font-weight: 600;
@@ -400,7 +400,7 @@ input::-moz-focus-inner {
 		-webkit-appearance: none;
 		-ms-appearance: none;
 		appearance: none;
-		background: rgb(255, 255, 255);
+		background: rgba(0, 0, 0, 0.973);
 		border-color: #9bf1ff;
 		border-radius: 1;
 		display: block;
@@ -418,7 +418,7 @@ input::-moz-focus-inner {
 		input[type="url"]:invalid,
 		select:invalid,
 		textarea:invalid {
-			background: rgb(255, 255, 255);
+			background: rgba(0, 0, 0, 0.975);
 			border-color: #9bf1ff;
 		}
 
@@ -445,8 +445,8 @@ input::-moz-focus-inner {
 	}
 
 		select option {
-			color: #ffffff;
-			background: #ffffff;
+			color: #000000;
+			background: #000000;
 		}
 
 		select:focus::-ms-value {
@@ -472,7 +472,7 @@ input::-moz-focus-inner {
 	}
 
 	::-webkit-input-placeholder {
-		color: rgb(255, 255, 255) !important;
+		color: rgb(255, 255, 255, 0.308) !important;
 		opacity: 1.0;
 	}
 

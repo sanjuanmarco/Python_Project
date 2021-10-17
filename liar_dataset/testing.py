@@ -1,11 +1,32 @@
 import sys
-#print(sys.path)
+
+sys.path.append('C:/Program Files/WindowsApps/PythonSoftwareFoundation.Python.3.9_3.9.2032.0_x64__qbz5n2kfra8p0/lib/site-packages')
+sys.path.append('C:/Users/Kyle/AppData/Local/Microsoft/WindowsApps/PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0')
 sys.path.append('C:/Users/Kyle/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0/LocalCache/local-packages/Python39/site-packages')
 sys.path.append('C:/Users/Kyle/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0/LocalCache/local-packages/Python39/site-packages/win32')
 sys.path.append('C:/Users/Kyle/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0/LocalCache/local-packages/Python39/site-packages/win32/lib')
 sys.path.append('C:/Users/Kyle/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0/LocalCache/local-packages/Python39/site-packages/Pythonwin')
+sys.path.append("C:/Users/Kyle/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0/LocalCache/local-packages/Python39/site-packages/easyocr")
 sys.path.append('C:/Users/Kyle/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0')
-sys.path.append('C:/Program Files/WindowsApps/PythonSoftwareFoundation.Python.3.9_3.9.2032.0_x64__qbz5n2kfra8p0/lib/site-packages')
+
+import easyocr
+
+img = sys.argv[1]
+
+
+reader = easyocr.Reader(['en'], gpu=False, model_storage_directory='C:/Users/Kyle/.EasyOCR/model', user_network_directory='C:/Users/Kyle/.EasyOCR/user_network')
+result = reader.readtext(img, detail = 0) #reading the image 
+
+result_list = []
+
+#appending extracted words into a list 
+for word in result:
+    result_list.append(word)
+
+#Concatenation of list
+sentences = " ".join(result_list)
+
+#Test Results
 
 import pandas as pd
 import re
@@ -64,27 +85,12 @@ feature_names = vectorizer.get_feature_names()
 feature_names = [feature_names[i] for i in chi.get_support(indices = True)]
 feature_names = np.asarray(feature_names)
 
-# user input from PHP
-url = str(sys.argv[1])
-
-# Output will be used for web crawling
-# RAKE
-r = Rake()
-words = r.extract_keywords_from_text(url)
-
-# contains keywords
-f_words = r.get_ranked_phrases()
-
 
 # Model prediction
-prediction = model.predict([url])
+prediction = model.predict([sentences])
+
+print(sentences)
 
 print(str(model.score(X_test,y_test)) + "\n")
 
 print(prediction)
-
-
-
-
-
-
