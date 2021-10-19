@@ -17,7 +17,8 @@ from show import *
 
 
 url = str(sys.argv[1])
-#url = "https://ph.news.yahoo.com/2m-covid-19-vaccines-unutilized-105800409.html"
+
+#url = "https://twitter.com/rkkaaay/status/1449462065995960323"
 
 try:
     response = requests.get(url)
@@ -36,11 +37,14 @@ try:
 
     #get news title
     article = NewsPlease.from_url(url)
-    headline = article.title
-    print("Headline: " + headline)
+    head = article.title
+    if head != None:
+        print("Headline: " + headline)
+    else:
+        print("Statement: " + result)
 
     read_dataframe('test.csv')
-    accuracy(article.title)
+    accuracy(head)
     #rake algo
     #r = Rake()
     #words = r.extract_keywords_from_text(result)

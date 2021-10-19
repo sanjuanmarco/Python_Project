@@ -1,4 +1,0 @@
-Traceback (most recent call last):
-  File "C:\Program Files\Xampp\htdocs\FakeNews\ocr.py", line 1, in <module>
-    import easyocr
-ModuleNotFoundError: No module named 'easyocr'

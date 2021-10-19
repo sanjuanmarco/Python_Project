@@ -12,8 +12,25 @@
 		<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
 		<link rel="stylesheet" href="assets/css/main.css?version=1" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+
+		<style type="text/css">
+		#loader {
+  			display: none;
+  			position: fixed;
+  			top: 0;
+  			left: 0;
+  			right: 0;
+  			bottom: 0;
+  			width: 100%;
+  			background: rgba(0,0,0,1) url(images/request.gif) no-repeat center center;
+  			z-index: 10000;
+		}
+		</style>
+
 	</head>
 	<body class="is-preload">
+			<div id="loader">
+			</div>
 
 		<!-- Wrapper -->
 			<div id="wrapper">
@@ -47,7 +64,7 @@
 							<p align="justify">SVM Fake News Detector is a web-based application that uses machine learning to aid users in determining whether articles and images are legitimate or fake. Just simply paste a link of an article or upload an image and this application will analyze its contents to provide users in determining if their inputs are fake or not.
 							</p>
 						
-									<form action="Results.php" method="post">
+									<form id="myform" action="Results.php" method="post">
 										<label style="color:white;" for="link">Insert valid URL</label>
 								<p >
   										<input type="url" id="link" name="link" placeholder="https://sample.net" required>
@@ -76,7 +93,7 @@
 								
 								<!-- IMAGE UPLOAD -->
 								<p>
-									<form action="ResultsImage.php" method="post" enctype="multipart/form-data">
+									<form id="myimage" action="ResultsImage.php" method="post" enctype="multipart/form-data">
   										<label style="color:white;"> Select image to upload </label>
 								<p>
 										<input type="file" name="file" id="file" multiple accept="image/x-png,image/jpeg" required>
@@ -118,6 +135,20 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script>
+				$(document).ready(function(){
+  					$("#myform").on("submit", function(){
+    					$("#loader").fadeIn();
+  					});//submit
+				});//document ready
+			</script>
+			<script>
+				$(document).ready(function(){
+  					$("#myimage").on("submit", function(){
+    					$("#loader").fadeIn();
+  					});//submit
+				});//document ready
+			</script>
 
 	</body>
 </html>
