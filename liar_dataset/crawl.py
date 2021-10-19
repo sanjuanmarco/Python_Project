@@ -39,7 +39,7 @@ try:
     article = NewsPlease.from_url(url)
     head = article.title
     if head != None:
-        print("Headline: " + headline)
+        print("Headline: " + head)
     else:
         print("Statement: " + result)
 

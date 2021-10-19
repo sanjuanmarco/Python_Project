@@ -40,7 +40,7 @@ def read_dataframe(csv_file) -> pd.DataFrame:
     return df
 
 
-def accuracy(headline):
+def accuracy(head):
     #create a dataframe from the training data
     data = read_dataframe('train.csv')
 
@@ -66,7 +66,7 @@ def accuracy(headline):
     feature_names = np.asarray(feature_names)
 
     # Model prediction
-    prediction = model.predict([headline])
+    prediction = model.predict([head])
 
     print("<br>")
     print("Accuracy Score: " + str(model.score(X_test,y_test)) + "<br>")
