@@ -41,7 +41,7 @@
 							</header>
 
 								<!-- Input Field -->
-								<p>
+								<p align="justify">
 								<?php
 								include 'config.php';
 								$file = $_FILES['file'];
@@ -85,9 +85,7 @@
 										}else{
 											$statusMsg = "Sorry, only JPG, JPEG, PNG, GIF, & PDF files are allowed to upload.";
 										}
-									}else{
-											$statusMsg = "The file <b>".$fileName. "</b> already exist.";
-										}
+									}
 								}else{
 									$statusMsg = 'Please select a file to upload.';
 								}
@@ -95,7 +93,7 @@
 								echo $statusMsg; 
 
 								$data = $path;
-								echo shell_exec("py -3.9 testing.py $data 2>&1");
+								echo shell_exec("py -3.9 ocr.py $data 2>&1");
 								?>
 									<br> 
 								
@@ -105,7 +103,7 @@
 								<p></p>
 								<ul class="actions">
 								
-								<li><a href="Homepage.php" class="button next">Check another</a></li>
+								<li><a href="Homepage.php" class="button next">Try another</a></li>
 								</ul>
 								</form>
 								</p>

@@ -46,11 +46,18 @@
 							</header>
 							<p align="justify">SVM Fake News Detector is a web-based application that uses machine learning to aid users in determining whether articles and images are legitimate or fake. Just simply paste a link of an article or upload an image and this application will analyze its contents to provide users in determining if their inputs are fake or not.
 							</p>
-
-							<ul class="actions">
+						
+									<form action="Results.php" method="post">
+										<label style="color:white;" for="link">Insert valid URL</label>
+								<p >
+  										<input type="url" id="link" name="link" placeholder="https://sample.net" required>
+								</p>				
 								
-								<li><a href="About.php" class="button next">Read more </a></li>
-							</ul>
+										<ul class="actions">
+										<li><input type="submit" name="sub" value="Check"></li>
+										</ul>
+									</form>
+							
 								
 								
 								
@@ -66,23 +73,11 @@
 								<div class="inner">
 									
 										<!-- Input Field -->
-								<p>
-									<form action="Results.php" method="post">
-										<label for="link">Insert valid URL</label>
-								<p>
-  										<input type="text" id="link" name="link" placeholder="Paste link" required>
-								</p>				
 								
-										<ul class="actions">
-										<li><input type="submit" name="sub" value="Check"></li>
-										</ul>
-									</form>
-								</p>
-
 								<!-- IMAGE UPLOAD -->
 								<p>
 									<form action="ResultsImage.php" method="post" enctype="multipart/form-data">
-  										<label> Select image to upload </label>
+  										<label style="color:white;"> Select image to upload </label>
 								<p>
 										<input type="file" name="file" id="file" multiple accept="image/x-png,image/jpeg" required>
 								

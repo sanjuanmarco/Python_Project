@@ -36,32 +36,28 @@
 				<!-- Banner -->
 					<section id="banner2" class="major">
 						<div class="inner">
-							<header class="major">
-								<h1>Results</h1>
-							</header>
-
+								
 								<!-- Input Field -->
 								<p>
+								RESULTS<br>
 								<?php 
+								
 									$url = $_POST["link"];
 									echo $url; 
 								?>
-									<br> 
 								
-								<p>
-								Accuracy Score:
+								<p align="justify">
 								<?php	
 
-									echo shell_exec("py -3.9 show.py $url 2>&1");
+									echo shell_exec("py -3.9 crawl.py $url 2>&1");
 
 								?>	
 								</p>				
 								<p></p>
 								<ul class="actions">
 								
-								<li><a href="Homepage.php" class="button next">Check another</a></li>
+								<li><a href="Homepage.php" class="button next">Try another</a></li>
 								</ul>
-								</form>
 								</p>
 								
 								

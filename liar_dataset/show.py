@@ -1,5 +1,4 @@
 import sys
-#print(sys.path)
 sys.path.append('C:/Users/Kyle/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0/LocalCache/local-packages/Python39/site-packages')
 sys.path.append('C:/Users/Kyle/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0/LocalCache/local-packages/Python39/site-packages/win32')
 sys.path.append('C:/Users/Kyle/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0/LocalCache/local-packages/Python39/site-packages/win32/lib')
@@ -40,48 +39,42 @@ def read_dataframe(csv_file) -> pd.DataFrame:
     
     return df
 
-#create a dataframe from the training data
-data = read_dataframe('train.csv')
 
-stemmer = SnowballStemmer('english')
-words = stopwords.words("english")
+def accuracy(headline):
+    #create a dataframe from the training data
+    data = read_dataframe('train.csv')
 
-data['preprocessed'] = data['statement'].apply(lambda x: " ".join([stemmer.stem(i) for i in re.sub("[^a-zA-Z]"," ",x).split() if i not in words]).lower())
+    stemmer = SnowballStemmer('english')
+    words = stopwords.words("english")
 
-X_train, X_test,y_train,y_test = train_test_split(data['preprocessed'],data.label, test_size=.3)
+    data['preprocessed'] = data['statement'].apply(lambda x: " ".join([stemmer.stem(i) for i in re.sub("[^a-zA-Z]"," ",x).split() if i not in words]).lower())
 
-pipeline = Pipeline([('vect',TfidfVectorizer(ngram_range=(1,1),stop_words = "english",sublinear_tf=True)),
+    X_train, X_test,y_train,y_test = train_test_split(data['preprocessed'],data.label, test_size=.3)
+
+    pipeline = Pipeline([('vect',TfidfVectorizer(ngram_range=(1,1),stop_words = "english",sublinear_tf=True)),
                     ('chi',SelectKBest(chi2, k=1000)),
                     ('clf',LinearSVC(C=1.0, penalty='l1', max_iter=3000, dual = False))])
 
-model = pipeline.fit(X_train,y_train)
+    model = pipeline.fit(X_train,y_train)
 
-vectorizer = model.named_steps['vect']
-chi = model.named_steps['chi']
-clf = model.named_steps['clf']
+    vectorizer = model.named_steps['vect']
+    chi = model.named_steps['chi']
+    clf = model.named_steps['clf']
 
-feature_names = vectorizer.get_feature_names()
-feature_names = [feature_names[i] for i in chi.get_support(indices = True)]
-feature_names = np.asarray(feature_names)
+    feature_names = vectorizer.get_feature_names()
+    feature_names = [feature_names[i] for i in chi.get_support(indices = True)]
+    feature_names = np.asarray(feature_names)
 
-# user input from PHP
-url = str(sys.argv[1])
+    # Model prediction
+    prediction = model.predict([headline])
 
-# Output will be used for web crawling
-# RAKE
-r = Rake()
-words = r.extract_keywords_from_text(url)
+    print("<br>")
+    print("Accuracy Score: " + str(model.score(X_test,y_test)) + "<br>")
 
-# contains keywords
-f_words = r.get_ranked_phrases()
-
-
-# Model prediction
-prediction = model.predict([url])
-
-print(str(model.score(X_test,y_test)) + "\n")
-
-print(prediction)
+    if prediction == [False]:
+        print("Label: False")
+    else:
+        print("Label: True")
 
 
 

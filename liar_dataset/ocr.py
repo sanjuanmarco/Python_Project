@@ -8,6 +8,7 @@ sys.path.append('C:/Users/Kyle/AppData/Local/Packages/PythonSoftwareFoundation.P
 sys.path.append('C:/Users/Kyle/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0/LocalCache/local-packages/Python39/site-packages/Pythonwin')
 sys.path.append("C:/Users/Kyle/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0/LocalCache/local-packages/Python39/site-packages/easyocr")
 
+from show import *
 import easyocr
 
 img = sys.argv[1]
@@ -25,3 +26,6 @@ for word in result:
 #Concatenation of list
 sentences = " ".join(result_list)
 print(sentences)
+
+read_dataframe("test_csv")
+accuracy(sentences)
