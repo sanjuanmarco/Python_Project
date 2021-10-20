@@ -8,6 +8,7 @@
 		<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
 		<link rel="stylesheet" href="assets/css/main.css?version=1" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+
 		<!-- For Columns -->
 		<style>
 		* {
@@ -69,15 +70,12 @@
 								<!-- Input Field -->
 								<p>
 								<b>RESULTS</b><br>
-								<?php 
-								
-									$url = $_POST["link"];
-								?>
+
 								
 								<p align="justify">
 								<?php	
 
-									echo shell_exec("py -3.9 crawl.py $url 2>&1");
+									echo shell_exec("py -3.9 confirm.py 2>&1");
 
 								?>	
 								</p>				
@@ -94,13 +92,13 @@
 						</div>
 					</section>
 
-					<section>
+				<section>
 								<div class="inner">
 									<div class="column" style="background-color:#242943;">
 										<label>Related links</label>
 										<?php 
 								
-											echo shell_exec("py -3.9 URLrelated.py 2>&1");
+											echo shell_exec("py -3.9 stateRelated.py 2>&1");
 										?>
 								
 									</div>

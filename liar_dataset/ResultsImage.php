@@ -1,12 +1,28 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Results</title>
+		<title>Confirmation</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
 		<link rel="stylesheet" href="assets/css/main.css?version=1" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+
+		<!-- Loadin Screen -->
+		<style type="text/css">
+		#loader {
+  			display: none;
+  			position: fixed;
+  			top: 0;
+  			left: 0;
+  			right: 0;
+  			bottom: 0;
+  			width: 100%;
+  			background: rgba(0,0,0,1) url(images/request.gif) no-repeat center center;
+  			z-index: 10000;
+		}
+		</style>
+
 	</head>
 	<body class="is-preload">
 
@@ -36,9 +52,9 @@
 				<!-- Banner -->
 					<section id="banner" class="major">
 						<div class="inner">
-							<header class="major">
-								<h1>Results</h1>
-							</header>
+							<p><b>Please confirm if the text is the same as seen on the image.<br>
+							Results will be based on the translated text.</b>
+							</p>
 
 								<!-- Input Field -->
 								<p align="justify">
@@ -103,7 +119,7 @@
 								<p></p>
 								<ul class="actions">
 								
-								<li><a href="Homepage.php" class="button next">Try another</a></li>
+								<li><a href="Homepage.php" class="button">Try another</a> <a id="confirm" name="butt" href="ImageConfirm.php" class="button">Confirm</a></li>
 								</ul>
 								</form>
 								</p>
@@ -159,6 +175,13 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script>
+				$(document).ready(function(){
+  					$("#confirm").on("button", function(){
+    					$("#loader").fadeIn();
+  					});//submit
+				});//document ready
+			</script>
 
 	</body>
 </html>

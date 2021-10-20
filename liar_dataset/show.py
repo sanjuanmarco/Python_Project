@@ -69,12 +69,12 @@ def accuracy(head):
     prediction = model.predict([head])
 
     print("<br>")
-    print("Accuracy Score: " + str(model.score(X_test,y_test)) + "<br>")
+    print("<b>Accuracy Score:</b> " + str(model.score(X_test,y_test)) + "<br>")
 
     if prediction == [False]:
-        print("Label: False")
+        print("<b>Label:</b> False")
     else:
-        print("Label: True")
+        print("<b>Label:</b> True")
 
 
 

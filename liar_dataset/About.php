@@ -44,7 +44,8 @@
 									based on the degree of accuracy it provides. This application relies on supervised learning (human-coded dataset) and focused web 
 									crawling to allow for relative accuracy. It outputs an accuracy score along with several classifications that measure the likelihood 
 									that the input has factual or false information.
-								</p>					
+								</p>	
+												
 															
 							
 						</div>
@@ -58,6 +59,24 @@
 								<div class="inner">				
 									<header class="major">
 										<h1>Objectives</h1>
+									</header>
+									<p align="justify">This application provides social media users an access to a tool that can aid in providing credible  information using the product of the study. 
+									It also provides a more accessible way of verification of news sources through the product of  the study and to aid in the reduction of both the consumption and 
+									spread of fake news among social  media networks. </p>
+
+									<h1>Objectives</h1>
+									</header>
+									<p align="justify">This application provides social media users an access to a tool that can aid in providing credible  information using the product of the study. 
+									It also provides a more accessible way of verification of news sources through the product of  the study and to aid in the reduction of both the consumption and 
+									spread of fake news among social  media networks. </p>
+
+									<h1>Objectives</h1>
+									</header>
+									<p align="justify">This application provides social media users an access to a tool that can aid in providing credible  information using the product of the study. 
+									It also provides a more accessible way of verification of news sources through the product of  the study and to aid in the reduction of both the consumption and 
+									spread of fake news among social  media networks. </p>
+
+									<h1>Objectives</h1>
 									</header>
 									<p align="justify">This application provides social media users an access to a tool that can aid in providing credible  information using the product of the study. 
 									It also provides a more accessible way of verification of news sources through the product of  the study and to aid in the reduction of both the consumption and 

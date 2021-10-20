@@ -18,8 +18,6 @@ from show import *
 
 url = str(sys.argv[1])
 
-#url = "https://twitter.com/rkkaaay/status/1449462065995960323"
-
 try:
     response = requests.get(url)
     download = trafilatura.fetch_url(url)
@@ -38,21 +36,28 @@ try:
     #get news title
     article = NewsPlease.from_url(url)
     head = article.title
+
+    twitter = "https://twitter.com"
+    fb = "https://www.facebook.com"
     if head != None:
-        print("Headline: " + head)
+        print("<b>URL: </b>" + url)
+        print("<br><b>Headline:</b> " + head)
+        read_dataframe('test.csv')
+        accuracy(head)
+
+        f = open("headline.txt", "w")
+        f.write(head)
+        f.close()
+
+    elif twitter in url or fb in url:
+        print("Sorry, social media links cannot be accessed due to privacy laws.<br>")
+        print("For social media posts, please copy the statement and paste in the corresponding field.")
+
     else:
-        print("Statement: " + result)
+        f = open("statement.txt", "w")
+        f.write(head)
+        f.close()
 
-    read_dataframe('test.csv')
-    accuracy(head)
-    #rake algo
-    #r = Rake()
-    #words = r.extract_keywords_from_text(result)
-
-    # contains keywords
-    #f_words = r.get_ranked_phrases()[0:20] #20 related phrases
-
-    # functions for accuracy and label
     
     
 
@@ -60,7 +65,7 @@ except requests.ConnectionError as exception:
     print("URL does not exist, please make sure to provide a valid URL.")
 
 except Exception:
-    print("Twitter")
+    print("")
 
 
 
