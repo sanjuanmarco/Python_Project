@@ -93,7 +93,7 @@
 							<p align="justify">SVM Fake News Detector is a web-based application that uses machine learning to aid users in determining whether articles and images are legitimate or fake. Just simply paste a link of an article or upload an image and this application will analyze its contents to provide users in determining if their inputs are fake or not.
 							</p>
 						
-									<form id="myform" action="Results.php" method="post">
+									<form id="myform" action="URLResults.php" method="post">
 										<label style="color:white;" for="link">Insert valid URL</label>
 								<p >
   										<input type="url" id="link" name="link" placeholder="https://sample.net" required>
@@ -113,7 +113,7 @@
 
 								<!-- IMAGE UPLOAD -->
 								
-									<form id="myimage" action="ResultsImage.php" method="post" enctype="multipart/form-data" >
+									<form id="myimage" action="ImageResults.php" method="post" enctype="multipart/form-data" >
   										<label style="color:white;"> Select image to upload </label>
 								<p>
 										<input type="file" name="file" id="file" multiple accept="image/x-png,image/jpeg" required style="padding-top: 14px">
@@ -132,11 +132,11 @@
 									<form id="myState" action="StatementResults.php" method="post">
 										<label style="color:white;" for="link">Insert statement(for social media posts)</label>
 								<p >
-  										<input  type="text" id="link" name="link" placeholder="" required>
+  										<input  type="text" id="link" name="link" value="" required>
 								</p>				
 								
 										<ul class="actions">
-										<li><input type="submit" name="sub" value="Check"></li>
+										<li><input type="submit" name="sub" value="Check"> &nbspPUT DOUBLE QUOTES AT THE START AND END OF INPUT</li>
 										</ul>
 									</form>
   								</div>

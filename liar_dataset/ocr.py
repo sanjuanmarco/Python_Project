@@ -18,6 +18,9 @@ sys.path.append("C:/Users/jake/AppData/Roaming/Python/Python39/site-packages/eas
 
 
 
+import easyocr
+from svm import inputPredict
+from googlesearch import search 
 
 img = sys.argv[1]
 
@@ -34,11 +37,28 @@ for word in result:
 #Concatenation of list
 sentences = " ".join(result_list)
 
-f = open("statement.txt", "w")
-f.write(sentences)
-f.close()
+if (not sentences):
+    print("<b>For accurate results, use high quality images. Results will be based on image clarity. Kindly double check if the produced statement is correct and the same as what is on the image.</b>")
+    print("stringmanip ")
+else:
+    print("<b>For accurate results, use high quality images. Results will be based on image clarity. Kindly double check if the produced statement is correct and the same as what is on the image.</b><br>")
+    inputPredict(sentences)
+    print("stringmanip " + sentences)
 
-print(sentences)
+    print("<label><label>Related links</label>")
+
+
+    fb = "https://www.facebook.com"
+    bm = "https://b-m.facebook.com"
+    mfb = "https://m.facebook.com"
+  
+    for i in search(sentences, tld="co.in", num=5, start=0, stop=4, pause=2):
+        if fb in i or bm in i or mfb in i:
+            continue
+        print("<a href=\"" + i + "\">" + i + "</a><br>")
+
+
+
 
 
 

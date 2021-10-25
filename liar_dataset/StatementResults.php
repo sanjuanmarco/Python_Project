@@ -66,20 +66,26 @@
 				<!-- Banner -->
 					<section id="banner2" class="major">
 						<div class="inner">
+							<div class="column">
 								
 								<!-- Input Field -->
 								<p>
 								<b>RESULTS</b><br>
                                 <?php 
 								
-									$url = $_POST["link"];
+									$statement = $_POST["link"];
 								?>
 
 								
 								<p align="justify">
 								<?php	
 
-									echo shell_exec("py -3.9 statement.py $url 2>&1");
+									$res = exec("py -3.9 statement.py $statement 2>&1", $output, $var);
+									$str = implode(" ",$output);
+									
+									$substring = substr($str, 0, strpos($str, 'stringmanip'));
+									echo $substring;
+
 
 								?>	
 								</p>				
@@ -89,6 +95,32 @@
 								<li><a href="Homepage.php" class="button">Try another</a></li>
 								</ul>
 								</p>
+								</div>
+
+								<div class="column">
+
+								<b> STATEMENT </b><br>
+								<p>
+								<p align="justify">
+								<?php
+	
+									function string_between_two_string($str, $starting_word, $ending_word){
+										$subtring_start = strpos($str, $starting_word);
+										//Adding the strating index of the strating word to 
+										//its length would give its ending index
+										$subtring_start += strlen($starting_word);  
+										//Length of our required sub string
+										$size = strpos($str, $ending_word, $subtring_start) - $subtring_start;  
+										// Return the substring from the index substring_start of length size 
+										return substr($str, $subtring_start, $size);  
+									}
+	  
+									$statement = string_between_two_string($str, 'stringmanip', '<label');
+	  
+									echo $statement;
+
+								?>
+								</div>
 								
 								
 								
@@ -99,10 +131,13 @@
 				<section>
 								<div class="inner">
 									<div class="column" style="background-color:#242943;">
-										<label>Related links</label>
+										
 										<?php 
 								
-											echo shell_exec("py -3.9 stateRelated.py 2>&1");
+											$pre = "<label>";
+											$ind = strpos($str, $pre) + strlen($pre);
+											$search = substr($str, $ind);
+											echo $search;
 										?>
 								
 									</div>
