@@ -15,10 +15,13 @@ sys.path.append('C:/Users/jake/AppData/Roaming/Python/Python39/site-packages/pyt
 
 import requests #pip3 install requests
 import trafilatura #pip3 install trafilatura
+from rake_nltk import Rake
+from similarity import *
 from lxml import html
 from newsplease import NewsPlease #pip3 install news-please
 from svm import inputPredict
 from googlesearch import search 
+
 
 url = str(sys.argv[1])
 
@@ -33,19 +36,67 @@ try:
     twitter = "https://twitter.com"
     fb = "https://www.facebook.com"
     mfb = "https://m.facebook.com"
+ 
     if head != None:
         print("<b>URL: </b>" + url)
         print("<br><b>Headline:</b> " + head + "<br>")
+        #inputPredict(head)
+        #test
+        download = trafilatura.fetch_url(url)
+        res = trafilatura.extract(download, include_comments=False, 
+            include_tables=False, no_fallback=True, output_format='xml')
+
+        a = str(res)
+
+        part = a.partition("h2") #remove strings in h2
+        output = part[0]
+
+        mytree = html.fromstring(output) #transforming xml to string
+        result = str(trafilatura.process_record(mytree)) #prints main content
+       
+        r = Rake()
+        r.extract_keywords_from_text(result)
+        r.get_ranked_phrases()
         inputPredict(head)
+        result = listToString(r.get_ranked_phrases())
+        
 
         
         print("<label><label>Related links</label>")
-  
+        url_article = []
+        x = 0
         for i in search(head, tld="co.in", num=5, start=1, stop=5, pause=2):
+            url_content = ""
+            url_article.append(i)
+           
             if fb in i:
                 continue
-            print("<a href=\"" + i + "\">" + i + "</a><br>")
 
+            download = trafilatura.fetch_url(url_article[x])
+            res = trafilatura.extract(download, include_comments=False, 
+            include_tables=False, no_fallback=True, output_format='xml')
+
+            a = str(res)
+
+            part = a.partition("h2") #remove strings in h2
+            output = part[0]
+
+            mytree = html.fromstring(output) #transforming xml to string
+            url_content = str(trafilatura.process_record(mytree)) #prints main content
+           
+
+
+            r1 = Rake()
+            r1.extract_keywords_from_text(url_content)
+            r1.get_ranked_phrases()
+            url_content = listToString(r1.get_ranked_phrases())
+            similarity_score =float("{:.5f}".format(cosine_sim(result,url_content)))
+
+        
+            print("<a href=\"" + i + "\">" + i +"</a>", similarity_score * 100 ,r"% similarity score" ,"<br>")
+           
+            x = x + 1
+  #end of test
        
     elif twitter in url or fb in url:
         print("<b>Sorry, social media links cannot be accessed due to privacy laws.<br>")
@@ -83,6 +134,4 @@ except requests.ConnectionError as exception:
 
 except Exception:
     print("")
-
-
 
