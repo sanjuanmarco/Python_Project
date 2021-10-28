@@ -117,7 +117,7 @@
 	  
 									$statement = string_between_two_string($str, 'stringmanip', '<label');
 	  
-									echo ($statement);
+									echo $statement;
 
 								?>
 								</div>

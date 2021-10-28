@@ -78,7 +78,7 @@ except Exception:
         similarity_score =float("{:.5f}".format(cosine_sim(result,url_content)))
            
 
-        print("<a href=\"" + i + "\">" + i + "</a>", similarity_score * 100 ,"<br>")
+        print("<a href=\"" + i + "\">" + i + "</a>", similarity_score * 100 ,r"% similarity score","<br>")
    
         x = x + 1
 

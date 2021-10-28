@@ -57,7 +57,7 @@ try:
         r = Rake()
         r.extract_keywords_from_text(result)
         r.get_ranked_phrases()
-        inputPredict(head)
+        inputPredict(result)
         result = listToString(r.get_ranked_phrases())
         
 
