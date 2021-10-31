@@ -21,8 +21,17 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
             <div class="container">
-                <a class="navbar-brand" href="/">Home</a>
-            
+                <a class="navbar-brand" href="/">HOME</a>
+                <button class="navbar-toggler text-uppercase font-weight-bold bg-secondary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#analysis">Analysis</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#links">Links</a></li>
+                    </ul>
+                </div>
             </div>
         </nav>
         <!-- Masthead-->
@@ -42,63 +51,81 @@
                         
                         View analysis
                     </a>
+                    &nbsp;&nbsp;
+                    <a class="btn btn-xl btn-outline-dark" href="#links" style="font-weight: bold;">
+                        
+                        Related links
+                    </a>
+                    &nbsp;&nbsp;
+                    <a class="btn btn-xl btn-outline-dark" href="/#functions" style="font-weight: bold;">
+                        
+                        Try another
+                    </a>
                 </div>
             </div>
         </header>
+
         <!-- About Section-->
-        <section class="page-section bg-white mb-0" id="analysis" style="color: black;">
+        <section class="page-section portfolio" id="analysis">
+            <div class="container">
+                <!-- Function Section Heading-->
+                <h2 class="page-section-heading text-center text-uppercase text-black mb-0">ANALYSIS</h2>
+                <br><br>
+                <!-- Function Grid Items-->
+                <div class="row justify-content-center">
+                    <!-- Function Item 1-->
+                    <div class="col-md-6 col-lg-4 mb-5">
+                        <div class="portfolio-item mx-auto bg-white text-black">
+                            <p class="lead" style="text-align: justify; margin: 15px;">ANALYSIS <br> is a web-based application that uses machine learning to classify articles and images as factual or fake. 
+                                It uses support vector machine to effectively train and test data sets in order to categorize user inputs 
+                                based on the degree of accuracy it provides. </p>
+                            
+                        </div>
+                    </div>
+                    <!-- Portfolio Item 2-->
+                    <div class="col-md-6 col-lg-4 mb-5">
+                        <div class="portfolio-item mx-auto bg-white text-black">
+                            <p class="lead" style="text-align: justify; margin: 15px;">EXPLAIN BEST ACCURACY <br> SVM Fake News Detector is a web-based application that uses machine learning to classify articles and images as factual or fake. 
+                                It uses support vector machine to effectively train and test data sets in order to categorize user inputs 
+                                based on the degree of accuracy it provides. </p>
+                            
+                        </div>
+                    </div>
+                    <!-- Portfolio Item 3-->
+                    <div class="col-md-6 col-lg-4 mb-5">
+                        <div class="portfolio-item mx-auto bg-white text-black">
+
+                            <p class="lead" style="text-align: justify; margin: 15px;">DISCLAIMER <br>SVM Fake News Detector is a web-based application that uses machine learning to classify articles and images as factual or fake. 
+                                It uses support vector machine to effectively train and test data sets in order to categorize user inputs 
+                                based on the degree of accuracy it provides.</p>
+
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <!-- Links Section-->
+        <section class="page-section bg-secondary text-white mb-0" id="links">
             <div class="container">
                 <!-- About Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-secondary">Analysis</h2>
+                <h2 class="page-section-heading text-center text-uppercase text-white">Related links</h2>
                 <br><br>
                 <!-- About Section Content-->
                 <div class="row">
-                    <div class="col-lg-4 ms-auto"><p class="lead" style="text-align: justify;">SVM Fake News Detector is a web-based application that uses machine learning to classify articles and images as factual or fake. 
-                        It uses support vector machine to effectively train and test data sets in order to categorize user inputs 
-                        based on the degree of accuracy it provides. </p></div>
-                    <div class="col-lg-4 me-auto"><p class="lead" style="text-align: justify;">This application relies on supervised learning (human-coded dataset) and focused web 
+                    <div class="col-lg-4 ms-auto"><p class="lead" style="text-align: justify;">{{ rel[1] }} <br>{{ rel[2] }} <br>{{ rel[3] }} </p></div>
+                    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                    <div class="col-lg-4 me-auto"><p class="lead" style="text-align: justify;">SIMILARITY SCORE EXPLANATION <br>This application relies on supervised learning (human-coded dataset) and focused web 
                         crawling to allow for relative accuracy. It outputs an accuracy score along with several classifications that measure the likelihood 
                         that the input has factual or false information.</p></div>
                 </div>
             </div>
         </section>
 
-        <!-- Footer-->
-        <footer class="footer text-center">
-            <div class="container">
-                <div class="row">
-                    <!-- Footer Location-->
-                    <div class="col-lg-4 mb-5 mb-lg-0">
-                        <h4 class="text-uppercase mb-4">Location</h4>
-                        <p class="lead mb-0">
-                            2215 John Daniel Drive
-                            <br />
-                            Clark, MO 65243
-                        </p>
-                    </div>
-                    <!-- Footer Social Icons-->
-                    <div class="col-lg-4 mb-5 mb-lg-0">
-                        <h4 class="text-uppercase mb-4">Around the Web</h4>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-twitter"></i></a>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-linkedin-in"></i></a>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-dribbble"></i></a>
-                    </div>
-                    <!-- Footer About Text-->
-                    <div class="col-lg-4">
-                        <h4 class="text-uppercase mb-4">About Freelancer</h4>
-                        <p class="lead mb-0">
-                            Freelance is a free to use, MIT licensed Bootstrap theme created by
-                            <a href="http://startbootstrap.com">Start Bootstrap</a>
-                            .
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </footer>
         <!-- Copyright Section-->
         <div class="copyright py-4 text-center text-white">
-            <div class="container"><small>Copyright &copy; Your Website 2021</small></div>
+            <div class="container"><small>Copyright &copy; MS TEAM 2021</small></div>
         </div>
 
         
