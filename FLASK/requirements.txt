@@ -1,0 +1,7 @@
+flask==2.0.2
+requests==2.26.0
+google-search
+google
+beautifulsoup4
+news-please
+pickle4
