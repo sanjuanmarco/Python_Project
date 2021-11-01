@@ -81,14 +81,19 @@ def user():
             r.get_ranked_phrases()
             result = listToString(r.get_ranked_phrases())
 
+            r2 = Rake()
+            r2.extract_keywords_from_text(head)
+            r2.get_ranked_phrases()
+            rake_url = listToString(r2.get_ranked_phrases())
+
             if twitter in urlink or fb in urlink:
                 msg = "Sorry, social media links cannot be accessed due to privacy laws. For social media posts, please copy the text and paste in the INSERT STATEMENT field."
                 return render_template("wrongURL.html", msg = msg)
             elif head != None:
                 #score
                 load_model = pickle.load(open('FLASK\\final_model__.sav', 'rb'))
-                prediction = load_model.predict([head])
-                prob = load_model.predict_proba([head])
+                prediction = load_model.predict([result])
+                prob = load_model.predict_proba([result])
 
                 pred = prediction[0]
                 probability = prob[0][1]
@@ -99,13 +104,14 @@ def user():
                 url_article = []
                 x = 0
                 similarity_score = []
-                for i in search(head, tld="co.in", num=5, start=1, stop=5, pause=2):
+                for i in search(rake_url, tld="co.in", num=5, start=1, stop=5, pause=2):
                     url_content = ""
                     url_article.append(i)
 
                     if fb in i or twitter in i:
                         continue
                     mylinks.append(str(i))
+                    
                     download = trafilatura.fetch_url(url_article[x])
                     res = trafilatura.extract(download, include_comments=False, 
                     include_tables=False, no_fallback=True, output_format='xml')
@@ -182,6 +188,7 @@ def user_statement():
             url_article = []
             x = 0
             similarity_score = []
+
             for i in search(state, tld="co.in", num=5, start=1, stop=5, pause=2):
                 url_article.append(i)
                 if fb in i or twitter in i:
